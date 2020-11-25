@@ -15,9 +15,12 @@ namespace SandBox
 
             // var resp = client.GetProfile();
             var metadata = await client.GetMetadata();
-
             var profile = await client.GetProfile();
+            
+            
             var recommendations = await client.GetMatchRecommendations();
+
+            
 
             var matches = await client.GetMatches(new UrlQueryBuilder().AddMatchesCount(10).Build());
             var moreMatches = await client.GetMessagedMatches(new UrlQueryBuilder().AddMatchesCount(10).Build());

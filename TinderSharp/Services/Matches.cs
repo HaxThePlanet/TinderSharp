@@ -17,6 +17,12 @@ namespace TinderSharp.Services
         private const string UserEndpoint = @"/user/{UserId}";
 
 
+        public static async Task<IList<RecommendedMatch>> LikeAllRecommendations(this TinderClient client)
+        {
+            var response = await new RestClient(MatchRecommendationsEndpoint, client.XAuthToken).Get<RecommendedMatches>();
+            return response.Results;
+        }
+
         public static async Task<IList<RecommendedMatch>> GetMatchRecommendations(this TinderClient client)
         {
             var response = await new RestClient(MatchRecommendationsEndpoint, client.XAuthToken).Get<RecommendedMatches>();
